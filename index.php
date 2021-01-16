@@ -22,8 +22,8 @@
     <title>Slug Generator</title>
 </head>
 <body>
-    <H1 class="page-header">Slug Generator</H1>
     <div class="container">
+        <H1 class="page-header">Slug Generator</H1>
         <form action="" method="post">
             <div class='form-group'>
                 <label for="title" class="for">Title</label>
