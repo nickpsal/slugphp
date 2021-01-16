@@ -7,7 +7,8 @@
             $title = $_POST['title'];
             $slug = greeklish($title);
         }
-    }else if (isset($_POST['Clear'])) {
+    }
+    if (isset($_POST['Clear'])) {
         $title = "";
         $slug = "";
     }
@@ -30,11 +31,13 @@
                     <input type="text" class="form-control" name="title" required value="<?php echo $title; ?>">
                 </div>
                 <div class='form-group'>
-                    <input type="text" class="form-control" name="title_slug" disabled value="<?php echo $slug; ?>">
+                    <label for="Slug" class="for">Generated Slug (leave it empty)</label>
+                    <input type="text" class="form-control" name="title_slug" id = "title_slug" value="<?php echo $slug; ?>">
                 </div>
                 <div class='form-group'>
                     <input class = 'btn btn-primary' type = 'submit' name = 'generate_slug' value = 'Generate Slug'>
-                    <input class = 'btn btn-primary' type = 'submit' name = 'clear' value = 'Clear'>
+                    <input class = 'btn btn-primary' type = 'submit' onclick="myFunction()" name = 'Copy' value = 'Copy'>
+                    <input class = 'btn btn-primary' type = 'submit' name = 'Clear' value = 'Clear'>
                 </div>
             </form>
         </div>
@@ -45,6 +48,15 @@
                 </div>
             </footer>
         </div>
+        <script>
+            function myFunction() {
+                var copyText = document.getElementById("title_slug");
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+                document.execCommand("copy");
+                alert("Copied the text: " + copyText.value);
+            }
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     </body>
