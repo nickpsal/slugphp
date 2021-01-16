@@ -1,18 +1,44 @@
 <?php
-    function greeklish($string) {
-        $greek_characters = array('α','ά','Ά','Α','β','Β','γ','Γ','δ','Δ','ε','έ','Ε','Έ','ζ','Ζ','η','ή','Η','θ','Θ',
-        'ι','ί','ϊ','ΐ','Ι','Ί','κ','Κ','λ','Λ','μ','Μ','ν','Ν','ξ','Ξ','ο','ό','Ο','Ό','π','Π','ρ','Ρ','σ',
-        'ς','Σ','τ','Τ','υ','ύ','Υ','Ύ','φ','Φ','χ','Χ','ψ','Ψ','ω','ώ','Ω','Ώ');
-        $greeklish_characters = array('a', 'a','A','A','b','B','g','G','d','D','e','e','E','E','z','Z','i','i','I','th','Th',
-        'i','i','i','i','I','I','k','K','l','L','m','M','n','N','x','X','o','o','O','O','p','P' ,'r','R','s',
-        's','S','t','T','u','u','Y','Y','f','F','x','X','ps','Ps','o','o','O','O');
-        $string = str_replace($greek_characters, $greeklish_characters, $string);
-        $string = strtolower(str_replace(' ','-',$string));
-        return $string;
+    $title = "";
+    include "includes/greeklish.php";
+    global $slug;
+    if (isset($_POST['generate_slug'])){
+        if ($_POST['title'] != null) {
+            $title = $_POST['title'];
+            $slug = greeklish($title);
+        }
+    }else if (isset($_POST['Clear'])) {
+        $title = "";
+        $slug = "";
     }
-    $title = 'ΔΟΚΙΜΑΣΤΙΚΟΣ ΤΙΤΛΟΣ ΟΛΑ ΜΕ ΚΕΦΑΛΑΙΑ ΓΙΑΤΙ ΜΟΥ ΤΗΝ ΕΔΩΣΕ Η ΚΑΡΑΝΤΙΝΑ';
-    $slug = greeklish($title);
-    $id = 101;
-    $slug = $id . '-' . $slug;
-    echo '<H1>' . $slug . '</H1>';
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Slug Generator</title>
+</head>
+<body>
+    <H1 class="page-header">Slug Generator</H1>
+    <div class="container">
+        <form action="" method="post">
+            <div class='form-group'>
+                <label for="title" class="for">Title</label>
+                <input type="text" class="form-control" name="title" required value="<?php echo $title; ?>">
+            </div>
+            <div class='form-group'>
+                <input type="text" class="form-control" name="title_slug" disabled value="<?php echo $slug; ?>">
+            </div>
+            <div class='form-group'>
+                <input class = 'btn btn-primary' type = 'submit' name = 'generate_slug' value = 'Generate Slug'>
+                <input class = 'btn btn-primary' type = 'submit' name = 'clear' value = 'Clear'>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+</body>
+</html>
