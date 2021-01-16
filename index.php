@@ -36,8 +36,8 @@
                 </div>
                 <div class='form-group'>
                     <input class = 'btn btn-primary' type = 'submit' name = 'generate_slug' value = 'Generate Slug'>
-                    <input class = 'btn btn-primary' type = 'submit' name = 'Copy' value = 'Copy' onclick='myFunction()'>
                     <input class = 'btn btn-primary' type = 'submit' name = 'Clear' value = 'Clear'>
+                    <input class = 'btn btn-primary' type = 'submit' name = 'Copy' value = 'Copy' onclick='myFunction()'>
                 </div>
             </form>
         </div>
