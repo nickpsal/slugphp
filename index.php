@@ -28,7 +28,7 @@
             <form action="" method="post">
                 <div class='form-group'>
                     <label for="title" class="for">Title</label>
-                    <input type="text" class="form-control" name="title" required value="<?php echo $title; ?>">
+                    <input type="text" class="form-control" name="title" value="<?php echo $title; ?>">
                 </div>
                 <div class='form-group'>
                     <label for="Slug" class="for">Generated Slug (leave it empty)</label>
@@ -37,6 +37,7 @@
                 <div class='form-group'>
                     <input class = 'btn btn-primary' type = 'submit' name = 'generate_slug' value = 'Generate Slug'>
                     <input class = 'btn btn-primary' type = 'submit' name = 'Clear' value = 'Clear'>
+                    <input class = 'btn btn-primary' type = 'submit' name = 'info' value = 'About' onclick='about()'>
                     <input class = 'btn btn-primary' type = 'submit' name = 'Copy' value = 'Copy' onclick='myFunction()'>
                 </div>
             </form>
@@ -44,7 +45,7 @@
         <div class="container">
             <footer class="bg-light text-center text-lg-start">
                 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                    © <?php echo date("Y"); ?> Created by STORMBLADER
+                    © <?php echo date("Y"); ?> Created by Nikolaos Psaltakis
                 </div>
             </footer>
         </div>
@@ -55,6 +56,12 @@
                 copyText.setSelectionRange(0, 99999); /*For mobile devices*/
                 document.execCommand("copy");
                 alert("Copied the text: " + copyText.value);
+            }
+            function about() {
+                $message1 = "This program generates slug from title.\n";
+                $message2 = "The user types a title in greek on english and it generates the slug in greeklish.\n";
+                $message3 = "Programmer : Nikolaos Psaltakis";
+                alert($message1 + $message2 + $message3);
             }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
