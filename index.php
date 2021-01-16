@@ -36,7 +36,7 @@
                 </div>
                 <div class='form-group'>
                     <input class = 'btn btn-primary' type = 'submit' name = 'generate_slug' value = 'Generate Slug'>
-                    <input class = 'btn btn-primary' type = 'submit' onclick="myFunction()" name = 'Copy' value = 'Copy'>
+                    <input class = 'btn btn-primary' type = 'submit' onclick='myFunction()' name = 'Copy' value = 'Copy'>
                     <input class = 'btn btn-primary' type = 'submit' name = 'Clear' value = 'Clear'>
                 </div>
             </form>
@@ -44,7 +44,7 @@
         <div class="container">
             <footer class="bg-light text-center text-lg-start">
                 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                    © <?php echo date("Y"); ?> Created by nickpsal
+                    © <?php echo date("Y"); ?> Created by STORBLADER
                 </div>
             </footer>
         </div>
